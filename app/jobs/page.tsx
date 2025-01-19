@@ -9,7 +9,6 @@ import { JobFilter } from "./components/JobFilter";
 import { useJobContext } from "../contexts/JobContext";
 import { JobFilterByStatus } from "./components/JobFilterByStatus";
 import { useEffect, useState } from "react";
-import { TJob } from "@/utils/types/job";
 import { CustomPagination } from "../components/common/Pagination";
 
 export default function JobsRoute() {

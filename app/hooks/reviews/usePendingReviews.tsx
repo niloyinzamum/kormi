@@ -11,7 +11,7 @@ const usePendingReviews = () => {
   const fetchReviews = async () => {
     setIsLoading(true);
     try {
-      const res = await api_client.get("reviews");
+      const res = await api_client.get("reviews/pending");
       setPendingReviews(res.data.data);
     } catch (error) {
       console.error("Failed to fetch pending reviews:", error);

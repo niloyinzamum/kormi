@@ -1,9 +1,9 @@
 import { handleError } from "@/lib/handleErrors";
 import { NextResponse } from "next/server";
 import { connectToMongoDB } from "@/lib/database";
-import User from "../../models/user";
-import { authMiddleware } from "../../middleware/auth";
-import Job from "../../models/job";
+import User from "../../../models/user";
+import { authMiddleware } from "../../../middleware/auth";
+import Job from "../../../models/job";
 import { Applicant } from "@/utils/types/applicant";
 
 const threeMonthsAgo = new Date();

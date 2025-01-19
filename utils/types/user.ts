@@ -1,12 +1,6 @@
 import { APPLICATION_STATUS } from "@/lib/constant";
 import { TJob } from "./job";
-
-export interface Review {
-  jobId: string;
-  rating: number;
-  feedback: string;
-  reviewCreatedDate: Date;
-}
+import { Review } from "./reviews";
 
 export interface TUser {
   _id: string;

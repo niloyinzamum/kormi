@@ -15,12 +15,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, Loader, Star, X } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { use, useState } from "react";
 import { toast } from "sonner";
 
 import { useSearchParams } from "next/navigation";
 import { formatEnglishToBangalNum } from "@/utils/formatEtoBLang";
 import { ImagePreview } from "@/app/components/common/ImagePreview";
+import useReviewsByApplicantId from "@/app/hooks/reviews/useReviewsByApplicantId";
+import Reviews from "./Reviews";
 
 export default function ApplicantProfileRoute({
   params
@@ -32,10 +34,6 @@ export default function ApplicantProfileRoute({
   const jobId = searchParams.get("jobId") as string;
   const { user, isLoading } = useUserById({ userId: params.applicantId });
   const [isProcessing, setIsProcessing] = useState(false);
-
-  if (!isLoading) {
-    console.log(user);
-  }
 
   const handleApplicantStatus = async (
     status: keyof typeof APPLICATION_STATUS
@@ -425,6 +423,11 @@ export default function ApplicantProfileRoute({
                             </span>
                           )}
                         </div>
+                      </div>
+
+                      {/* Reviews */}
+                      <div className="col-span-2 bg-gray-50 dark:bg-slate-800 rounded-lg p-6">
+                        <Reviews applicantId={params.applicantId} />
                       </div>
                     </div>
                   </div>
