@@ -592,11 +592,14 @@
   "UserCard": {
     "edit": "Edit",
     "ban": "Ban",
+    "unban": "Unban",
     "delete": "Delete"
   },
   "UserBanModal": {
     "ban_confirmation": "User Ban Confirmation",
     "ban_description": "Are you sure you want to ban this user?",
+    "unban_confirmation": "User Unban Confirmation",
+    "unban_description": "Are you sure you want to unban this user?",
     "no": "No",
     "yes": "Yes"
   },

@@ -3,7 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { formatEnglishToBangalNum } from "@/utils/formatEtoBLang";
 import { TUser } from "@/utils/types/user";
-import { Phone, Mail, Briefcase, Edit, Trash, BanIcon } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  Briefcase,
+  Edit,
+  Trash,
+  BanIcon,
+  UserRoundCheckIcon
+} from "lucide-react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { USER_ROLE } from "@/lib/constant";
 import Link from "next/link";
@@ -51,6 +59,7 @@ export default function UserCard({
         open={isBanOpen}
         setIsOpen={setIsBanOpen}
         userId={user._id}
+        isBanned={user.isBanned}
       />
       <Link
         href={isMobileUser ? "#" : `/admin/users/${user._id}/jobs`}
@@ -113,8 +122,12 @@ export default function UserCard({
                   setIsBanOpen(true);
                 }}
               >
-                <BanIcon strokeWidth={1.7} size={16} />
-                {t("ban")}
+                {user.isBanned ? (
+                  <UserRoundCheckIcon strokeWidth={1.7} size={16} />
+                ) : (
+                  <BanIcon strokeWidth={1.7} size={16} />
+                )}
+                {user.isBanned ? t("unban") : t("ban")}
               </Button>
               <Button
                 className="rounded-md bg-red-600/5 hover:bg-red-500 border-red-600/10 hover:border-red-600 text-red-600 duration-200 transition-all hover:text-white md:relative flex items-center justify-center px-2 py-2 space-x-1 cursor-pointer text-sm font-medium"

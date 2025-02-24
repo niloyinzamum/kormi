@@ -592,11 +592,14 @@
   "UserCard": {
     "edit": "এডিট",
     "ban": "ব্যান",
+    "unban": "আনব্যান",
     "delete": "ডিলিট"
   },
   "UserBanModal": {
     "ban_confirmation": "ইউজার ব্যান নিশ্চিতকরণ",
     "ban_description": "আপনি কি এই ইউজার ব্যান করার বিষয়ে নিশ্চিত?",
+    "unban_confirmation": "ইউজার আনব্যান নিশ্চিতকরণ",
+    "unban_description": "আপনি কি এই ইউজার আনব্যান করার বিষয়ে নিশ্চিত?",
     "no": "না",
     "yes": "হ্যাঁ"
   },

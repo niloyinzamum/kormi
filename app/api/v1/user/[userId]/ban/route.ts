@@ -12,7 +12,7 @@ export async function PATCH(request: NextRequest, { params }: TUserParams) {
   try {
     const userId = params.userId;
 
-    const auth =  await authMiddleware(request);
+    const auth = await authMiddleware(request);
     if (auth instanceof NextResponse) {
       return auth;
     }
@@ -41,10 +41,11 @@ export async function PATCH(request: NextRequest, { params }: TUserParams) {
       return NextResponse.json({ error: "User not found!" }, { status: 404 });
     }
 
-    user.isBanned = true;
+    user.isBanned = user.isBanned !== undefined ? !user.isBanned : true;
     await user.save();
 
-    return NextResponse.json({ status: "success", message: "ব্যান সফল হয়েছে" });
+    const message = `User has been successfully ${user.isBanned ? "banned" : "unbanned"}`;
+    return NextResponse.json({ status: "success", message });
   } catch (error) {
     return handleError(error);
   }
